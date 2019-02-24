@@ -29,13 +29,13 @@ public class Lox {
         run(new String(bytes, Charset.defaultCharset()));
 
         // Indicate an error in the exit code.
-        if (hadError) {System.exit(65);
+        if (hadError) System.exit(65);
     }
 
     //REPL loop, escape with Ctrl-c.
     private static void runPrompt() throws IOException {
         InputStreamReader input = new InputStreamReader(System.in);
-        BufferedReader reader =new BufferedReader(input);
+        BufferedReader reader = new BufferedReader(input);
 
         for (;;) {
             System.out.print("> ");
@@ -48,7 +48,7 @@ public class Lox {
         Scanner scanner = new Scanner(source);
         List<Token> tokens = scanner.scanTokens();
 
-        //print the tokens
+        // Print the tokens.
         for (Token token : tokens) {
             System.out.println(token);
         }
@@ -59,7 +59,7 @@ public class Lox {
         report(line, "", message);
     }
 
-    private static void report(int line String where, String message) {
+    private static void report(int line, String where, String message) {
         System.err.println(
                 "[line " + line + "] Error" + where + ": " + message);
         hadError = true;
