@@ -14,14 +14,14 @@ class Parser {
         this.tokens = tokens;
     }
 
-   List<Stmt> parse() {
+    List<Stmt> parse() {
         List<Stmt> statements = new ArrayList<>();
         while (!isAtEnd()) {
             statements.add(statement());
         }
 
         return statements;
-   }
+    }
 
     private Expr expression() {
         return equality();
